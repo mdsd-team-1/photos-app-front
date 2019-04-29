@@ -23,6 +23,14 @@
   color: #61dafb;
 }
 
+.back-home {
+  background-color: white !important;
+}
+
+.back-home2{
+  background-color: white !important;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

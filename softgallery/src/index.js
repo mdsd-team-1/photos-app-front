@@ -19,7 +19,7 @@ import './app/styles/index.css';
 
 ReactDOM.render(
     <Provider store={store}>
-        <BrowserRouter basename={'/Inspektor/'}>
+        <BrowserRouter>
             <LocaleProvider locale={es_ES}>
                 <App />
             </LocaleProvider>

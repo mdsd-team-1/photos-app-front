@@ -1,0 +1,77 @@
+.initial-home-div{
+  height: 60.5vh;
+}
+
+.second-div{
+  margin-top: 100px;
+  margin-left: 5px;
+}
+
+.carousel{
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 80%;
+  height: 350px;
+}
+
+.background-picture{
+  height: 370px;
+  width: 100%;
+  z-index: -1;
+}
+
+.carousel-text{
+  width: 70%;
+  bottom: 35%;
+  margin-left: 15%;
+  position: sticky;
+  display: inline-block;
+  z-index: 1;
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, .7);
+  color: rgb(255, 255, 255);
+}
+
+.title{
+  color: #1890ff;
+  font-size: 30px;
+}
+
+.arrows{
+  position: fixed;
+  top: 35%;
+  font-size: 40px;
+  font-weight: bold;
+  padding-right: 15px;
+  padding-left: 30px;
+  margin-right: auto;
+  margin-left: 10%;
+  width: 80%;
+  color: white;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, .7);
+}
+
+.divider{
+  margin-top: 50px;
+}
+
+@media only screen and (max-width: 900px) {
+  .carousel-text {
+    font-size: 18px;
+    bottom: 50%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .carousel-text {
+    font-size: 18px;
+    bottom: 50%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
