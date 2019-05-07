@@ -10,7 +10,7 @@ import slider_1 from "../../../assets/slider_6.jpg";
 import slider_2 from "../../../assets/slider_2.jpg";
 import slider_3 from "../../../assets/slider_5.jpg";
 import slider_4 from "../../../assets/slider_4.jpg";
-import slider_5 from "../../../assets/slider_5.jpg";
+//import slider_5 from "../../../assets/slider_5.jpg";
 
 class Home extends Component {
 
@@ -41,7 +41,7 @@ class Home extends Component {
 
     return (
         <div className={"initial-home-div"}>
-          <div className={"second-div"} >
+          <div className={"second-div"}>
             <Carousel className={"carousel"} ref={node => (this.carousel = node)} {...props}>
               <div>
                 <img className="background-picture" src={slider_1} alt={"Slider 1"}/>

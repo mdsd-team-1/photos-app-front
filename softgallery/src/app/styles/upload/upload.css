@@ -1,0 +1,32 @@
+.initial-div{
+  height: 60.5vh;
+}
+
+.second-div{
+  margin-top: 80px;
+  margin-left: 5px;
+}
+
+.upload-content{
+  margin: auto;
+  width: 80%;
+  height: 350px;
+  border-radius: 15px !important; 
+}
+
+.album-select{
+  width: 100%;
+}
+
+.upload-text{
+  margin-bottom: 25px !important;
+}
+
+.upload-input{
+  margin-left: 10px !important;
+  color: #1890ff;
+}
+
+.row-content{
+  margin-right: 10px;
+}

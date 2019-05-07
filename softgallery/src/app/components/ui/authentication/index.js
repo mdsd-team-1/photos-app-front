@@ -4,24 +4,31 @@ import { Form, Layout } from 'antd';
 import {Route, Switch} from "react-router-dom";
 import {Redirect} from "react-router";
 
+//Subcomponents
+import LoginForm from "./LoginForm";
+//import ForgotPassword from "./ForgotPassword";
+import Register from "./Register";
+import routes from "../../../utils/constants";
+//import Home from "../home/index";
+
+//Services
+import userSessionService from "../../../services/authentication/loginServices";
+
+//Actions
+import {ERROR_MODAL, SUCCESS_MODAL} from "../../../store/redux/types";
+
 //Styles
 import '../../../styles/login/login.css';
 
 //Pictures
-import background from "../../../assets/fondo4.jpg";
-import icon from "../../../assets/logo.png";
-
-//Subcomponents
-import LoginForm from "./LoginForm";
-//import ForgotPassword from "./ForgotPassword";
-//import Register from "./Register";
-import routes from "../../../utils/constants";
+import background from "../../../assets/fondo0.jpg";
+//import icon from "../../../assets/logo.png";
 
 //Constants
 const { Content, Sider } = Layout;
 const WrappedNormalLoginStandard = Form.create()(LoginForm);
 //const WrappedForgotPassword = Form.create()(ForgotPassword);
-//const WrappedRegister = Form.create()(Register);
+const WrappedRegister = Form.create()(Register);
 
 class Login extends Component {
   
@@ -32,22 +39,13 @@ class Login extends Component {
 
         <Layout>
           <Sider width={400} style={{backgroundColor: "#fff"}}>
-            <div className="div-logo">
-              <img src={icon} alt="icon" className="logo" />
-            </div>
-            <div className={"login-card"}>
-                <div className="login-form">
-                  <Switch>
-                    <Route path={routes.login} component={WrappedNormalLoginStandard} />
-                    <Route render = {()=><Redirect to={routes.login}/>}/>
-                  </Switch>
-                </div>
-            </div>
-            <div className={"bottom-title"}>
-              SoftGallery © 2019
-            </div>
+              <Switch>
+                <Route path={routes.login} component={WrappedNormalLoginStandard} />
+                <Route path={routes.register} component={WrappedRegister} />
+                <Route render = {()=><Redirect to={routes.login}/>}/>
+              </Switch>
           </Sider>
-          <Layout>
+          <Layout className={"background-sider"}>
             <Content className={"background-picture-login"}>
               <img src={background} alt="shopping_cart" className="shop"/>
             </Content>

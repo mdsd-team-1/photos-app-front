@@ -5,7 +5,7 @@ import {withRouter} from 'react-router-dom';
 
 //Components
 import MainMenu from "./components/ui/general/MainMenu";
-import Login from "./components/ui/authentication/Login";
+import Login from "./components/ui/authentication/index";
 
 //Subcomponents
 import Router from "./components/ui/general/Router";
@@ -35,22 +35,11 @@ class App extends Component {
   }
 
   isSignedIn(){
-    /*if (localStorage.access_token !== undefined && localStorage.access_token !== null &&
-        localStorage.access_token !== 'null' && localStorage.access_token){
-      let expireTime = new Date(localStorage.expires_on);
-      let today = new Date();
-      if (today < expireTime) {
-        return true;
-      } else {
-        localStorage.clear();
-        return false;
-      }
-    }
-    return false;
-    */
-    if(localStorage.email !== undefined && localStorage.email !== ''){
+    if (localStorage.isLogged !== undefined && localStorage.isLogged !== null &&
+        localStorage.isLogged !== 'null' && localStorage.isLogged){
       return true;
-    }else{
+    } else {
+      localStorage.clear();
       return false;
     }
   };
@@ -58,7 +47,6 @@ class App extends Component {
   render(){
 
     let signedIn = this.isSignedIn();
-    console.log(signedIn);
 
     if(!signedIn){
       return( <Login/> );

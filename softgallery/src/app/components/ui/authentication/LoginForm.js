@@ -4,9 +4,19 @@ import React, {Component} from 'react';
 import { Redirect } from "react-router";
 import {Link} from "react-router-dom";
 //import connect from 'react-redux/es/connect/connect';
-import routes from "../../../utils/constants";
-//import {login} from "../../../../store/redux/actions/login/loginActions";
 //import PropTypes from 'prop-types';
+
+//Subcomponents
+import routes from "../../../utils/constants";
+
+//Actions
+//import {login} from "../../../../store/redux/actions/login/loginActions";
+import {ERROR_MODAL, SUCCESS_MODAL} from "../../../store/redux/types";
+import icon from "../../../assets/logo.png";
+
+//Services
+import userSessionService from "../../../services/authentication/loginServices";
+
 
 //Constants
 const FormItem = Form.Item;
@@ -23,7 +33,9 @@ class LoginForm extends Component {
       login_success: 0,
       email: '',
       password: '',
-      isLogin: this.isSignedIn(),
+      isLogin: false,
+      token: null,
+      loginError: null,
     };
 
   }
@@ -37,76 +49,95 @@ class LoginForm extends Component {
   };
 
   loginAction (email, password) {
-/*    if (email === '' || password === '') {
-      this.setState({ loginError: true });
+    if (email === '' || password === '') {
+      this.setState({ isLogin: false });
+      ERROR_MODAL("Error al ingresar", "Ingrese un email y una contraseña válidos.");
     } else {
-      localStorage.setItem('email', email);
-      //this.props.login(email, password);
-    }
-  */
-    localStorage.setItem('email', email);
-    this.setState({
-      isLogin: true,
-    });
-    
-  };
-
-  isSignedIn(){
-    /*if (localStorage.access_token !== undefined && localStorage.access_token !== null &&
-        localStorage.access_token !== 'null' && localStorage.access_token){
-      let expireTime = new Date(localStorage.expires_on);
-      let today = new Date();
-      if (today < expireTime) {
-        return true;
-      } else {
-        localStorage.clear();
-        return false;
-      }
-    }
-    return false;
-    */
-    if(localStorage.email !== undefined && localStorage.email !== ''){
-      return true;
-    }else{
-      return false;
-    }
+      userSessionService.token().then( response => {
+        let new_token;
+        if(localStorage.access_token === null || localStorage.access_token === undefined){
+          localStorage.setItem('access_token', response.data.access_token);
+          new_token = response.data.access_token;
+        }else{
+          new_token = localStorage.access_token;
+        }
+        
+        userSessionService.login(email, password, new_token).then( response => {
+        let result = response.data['Login Status'];
+        let id = response.data['User Id'];
+        if (result === "Successfully logged in"){
+          SUCCESS_MODAL("Operación realizada exitosamente", "Ha ingresado satisfactoriamente.");
+          localStorage.setItem('isLogged', true);
+          localStorage.setItem('id', id);
+          this.setState({
+            isLogin: true,
+          });
+        }else{
+          ERROR_MODAL("Error al ingresar", "El email o la contraseña no son correctos.");
+          this.setState({
+            isLogin: false,
+          });
+        }          
+      })
+      .catch( () => {
+        ERROR_MODAL("Error al ingresar", "Intente nuevamente más tarde.");
+          this.setState({
+            isLogin: false
+          });
+      });
+        this.setState({
+          loginError: false,
+        });
+      })
+      .catch( () => {
+        ERROR_MODAL("Error al ingresar", "Intente nuevamente más tarde");
+          this.setState({
+            loginError: true
+          });
+      }); 
+    }    
   };
 
   render() {
     const { email, password, isLogin } = this.state;
-    console.log(isLogin);
-
     return (
-        <Form onSubmit={this.handleSubmit} className="login-form">
-          <div > 
-            <FormItem>
-              <Input className={"form-content"} prefix={<Icon type="user" className={"field-icon"} />} placeholder="Usuario" 
-                onChange={(value) => this.onChangeEmail(value)} onPressEnter={() => this.loginAction(email, password)}/>
-            </FormItem>
-            <FormItem>
-              <Input prefix={<Icon type="lock" className={"field-icon"} />} type="password" placeholder="Contraseña"
-                onChange={(value) => this.onChangePassword(value)} onPressEnter={() => this.loginAction(email, password)}/>
-            </FormItem>
-            <FormItem className={"submit"}>
-              <Button type="primary" htmlType="submit" className="login-form-button" onClick={() => this.loginAction(email, password)}>
-                <p className={"login-button-text"}>Iniciar Sesión</p>
-              </Button>
-              {isLogin &&
-                <Redirect to={"/home"}/>
-              }
-              <div className={"for-links"}>
-                <Link to={routes.forgot_password}>
-                  <p className={"url-form"}>¿Olvidó su contraseña?</p>
-                </Link>
-                <Link to={routes.register}>
-                  <p className={"url-form"}>¿Desea Registrarse?</p>
-                </Link>
+      <div>
+        <div className="div-logo">
+          <img src={icon} alt="icon" className="logo" />
+        </div>
+        <div className={"login-card"}>
+          <div className="login-form">
+            <Form onSubmit={this.handleSubmit} className="login-form">
+              <div> 
+                <FormItem>
+                  <Input className={"form-content"} prefix={<Icon type="user" className={"field-icon"} />} placeholder="Email" 
+                    onChange={(value) => this.onChangeEmail(value)} onPressEnter={() => this.loginAction(email, password)}/>
+                </FormItem>
+                <FormItem>
+                  <Input prefix={<Icon type="lock" className={"field-icon"} />} type="password" placeholder="Contraseña"
+                    onChange={(value) => this.onChangePassword(value)} onPressEnter={() => this.loginAction(email, password)}/>
+                </FormItem>
+                <FormItem className={"submit"}>
+                  <Button type="primary" htmlType="submit" className="login-form-button" onClick={() => this.loginAction(email, password)}>
+                    <p className={"login-button-text"}>Iniciar Sesión</p>
+                  </Button>
+                  {isLogin &&
+                    <Redirect to={"/home"}/>
+                  }
+                  <div className={"for-links"}>
+                    <Link to={routes.register}>
+                      <p className={"url-form"}>¿Desea Registrarse?</p>
+                    </Link>
+                  </div>
+                </FormItem>
               </div>
-            </FormItem>
+            </Form>
           </div>
-          
-
-        </Form>
+        </div>
+        <div className={"bottom-title"}>
+          SoftGallery © 2019
+        </div>
+      </div>
     );
   }
 }

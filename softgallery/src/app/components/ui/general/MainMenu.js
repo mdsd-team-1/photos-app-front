@@ -48,24 +48,13 @@ class MainMenu extends Component {
       visible: false,
     });
   };
-
-  isSignedIn () {
-    /*if(localStorage.access_token !== undefined && localStorage.access_token !== null && localStorage.access_token !== 'null' && localStorage.access_token){
-      let expireTime = new Date(localStorage.expires_on);
-      let today = new Date();
-      if(today<expireTime){
-        return true;
-      }else{
-        localStorage.clear();
-        //this.props.logout();
-        return false;
-      }
-    }
-    //this.props.logout();
-    return false;*/
-    if(localStorage.email !== undefined && localStorage.email !== ''){
+  
+  isSignedIn(){
+    if (localStorage.isLogged !== undefined && localStorage.isLogged !== null &&
+        localStorage.isLogged !== 'null' && localStorage.isLogged){
       return true;
-    }else{
+    } else {
+      localStorage.clear();
       return false;
     }
   };
@@ -102,13 +91,13 @@ class MainMenu extends Component {
               <NavLink to={routes.home}><Icon type="home"/>Inicio</NavLink>
             </Menu.Item>
             <Menu.Item>
-              <NavLink to={routes.profile}>< Icon type="upload"/>Cargar fotos</NavLink>
+              <NavLink to={routes.upload}>< Icon type="upload"/>Cargar fotos</NavLink>
             </Menu.Item>
             <Menu.Item>
-              <NavLink to={routes.profile}>< Icon type="appstore"/>Álbumes</NavLink>
+              <NavLink to={routes.album}>< Icon type="appstore"/>Álbumes</NavLink>
             </Menu.Item>
             <Menu.Item>
-              <NavLink to={routes.profile}>< Icon type="picture"/>Galería</NavLink>
+              <NavLink to={routes.gallery}>< Icon type="picture"/>Galería</NavLink>
             </Menu.Item>
             <Menu.Item>
               <NavLink to={routes.profile}>< Icon type="user"/>Perfil</NavLink>
@@ -120,7 +109,7 @@ class MainMenu extends Component {
         </Header>
         {
           !loggedIn &&
-          <Redirect to={routes.login}/>
+          <Redirect to={"/"}/>
         }
       </Layout>
     );

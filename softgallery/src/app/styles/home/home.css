@@ -8,24 +8,22 @@
 }
 
 .carousel{
-  padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  width: 70%;
+  width: 80%;
   height: 350px;
-  border-radius: 2px;
 }
 
 .background-picture{
-  height: 370px;
+  height: 420px;
   width: 100%;
-  z-index: -1;
+  z-index: -1; 
 }
 
 .carousel-text{
   width: 70%;
-  bottom: 25%;
+  bottom: 15%;
   margin-left: 15%;
   position: sticky;
   display: inline-block;
@@ -44,14 +42,14 @@
 
 .arrows{
   position: fixed;
-  top: 40%;
+  top: 45%;
   font-size: 40px;
   font-weight: bold;
   padding-right: 15px;
-  padding-left: 30px;
+  padding-left: 25px;
   margin-right: auto;
-  margin-left: 16%;
-  width: 70%;
+  margin-left: 12%;
+  width: 80%;
   color: white;
   text-shadow: 0 2px 3px rgba(0, 0, 0, .7);
 }

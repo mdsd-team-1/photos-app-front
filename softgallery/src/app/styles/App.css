@@ -19,6 +19,12 @@
   color: white;
 }
 
+.footer-div{
+  font-weight: bold;
+  color:  #000000;
+  font-size: 15px;
+}
+
 .App-link {
   color: #61dafb;
 }
