@@ -13,15 +13,15 @@ import MainLoading from '../subcomponents/MainLoading';
 import '../../../styles/album/album.css'
 
 //Assets
-import slider_1 from "../../../assets/slider_6.jpg";
+/*import slider_1 from "../../../assets/slider_6.jpg";
 import slider_2 from "../../../assets/slider_2.jpg";
 import slider_3 from "../../../assets/slider_5.jpg";
 import slider_4 from "../../../assets/slider_4.jpg";
-import slider_5 from "../../../assets/slider_3.jpg";
+import slider_5 from "../../../assets/slider_3.jpg";*/
 
 //Services
-import albumService from "../../../services/album/albumServices";
-import {ERROR_MODAL, CONFIRM_MODAL} from "../../../store/redux/types";
+import albumService from "../../../actions/services/album/albumServices";
+import {ERROR_MODAL, CONFIRM_MODAL} from "../../../actions/store/redux/types";
 
 //Constants
 const { Meta } = Card;

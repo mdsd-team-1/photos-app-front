@@ -1,24 +1,24 @@
 //Libraries
 import React, {Component} from 'react';
-import {Row, Col, Divider, List, Card, Icon, Button, Modal, Input, Select} from 'antd';
+import {Row, Col, Divider, List, Card} from 'antd';
 
 //Subcomponents
-import FieldTitle from '../subcomponents/FieldTitle';
+//import FieldTitle from '../subcomponents/FieldTitle';
 import MainLoading from '../subcomponents/MainLoading';
 
 //Styles
 import '../../../styles/album/album.css'
 
 //Assets
-import slider_1 from "../../../assets/slider_6.jpg";
+/*import slider_1 from "../../../assets/slider_6.jpg";
 import slider_2 from "../../../assets/slider_2.jpg";
 import slider_3 from "../../../assets/slider_5.jpg";
 import slider_4 from "../../../assets/slider_4.jpg";
-import slider_5 from "../../../assets/slider_3.jpg";
+import slider_5 from "../../../assets/slider_3.jpg";*/
 
 //Services
-import photoServices from "../../../services/photos/photoServices";
-import {ERROR_MODAL, CONFIRM_MODAL} from "../../../store/redux/types";
+import photoServices from "../../../actions/services/photos/photoServices";
+import {ERROR_MODAL} from "../../../actions/store/redux/types";
 
 //Constants
 const { Meta } = Card;
@@ -67,7 +67,7 @@ class Album extends Component {
 
   render() {
 
-    let { cardImageModalVisible, userAlbums, albumPhotos } = this.state;
+    let { userAlbums, albumPhotos } = this.state;
     
     console.log(albumPhotos);
     if(this.state.loading === null || this.state.userAlbums === null){

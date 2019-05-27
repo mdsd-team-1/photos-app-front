@@ -6,7 +6,7 @@ import {Form, Row, Col, Tag, Input, Button, Divider, Modal, Upload} from 'antd';
 import FieldTitle from '../subcomponents/FieldTitle';
 
 //Actions
-import {ERROR_MODAL, SUCCESS_MODAL} from "../../../store/redux/types";
+import {ERROR_MODAL, SUCCESS_MODAL} from "../../actions/store/redux/types";
 
 //Styles
 import '../../../styles/upload/upload.css'

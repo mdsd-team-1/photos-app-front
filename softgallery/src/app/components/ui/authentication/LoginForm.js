@@ -11,11 +11,11 @@ import routes from "../../../utils/constants";
 
 //Actions
 //import {login} from "../../../../store/redux/actions/login/loginActions";
-import {ERROR_MODAL, SUCCESS_MODAL} from "../../../store/redux/types";
+import {ERROR_MODAL, SUCCESS_MODAL} from "../../../actions/store/redux/types";
 import icon from "../../../assets/logo.png";
 
 //Services
-import userSessionService from "../../../services/authentication/loginServices";
+import userSessionService from "../../../actions/services/authentication/loginServices";
 
 
 //Constants

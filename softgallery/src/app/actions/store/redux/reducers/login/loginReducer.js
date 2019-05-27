@@ -1,4 +1,4 @@
-import {LOGIN_SUCCESS, LOGIN_ERROR, LOGGING, RESET_ALL, LOGOUT, SET_ROLE} from '../../types'
+import {LOGIN_SUCCESS, LOGIN_ERROR, LOGGING, RESET_ALL, LOGOUT} from '../../types'
 
 const initialState={
   isLogin: false,
@@ -37,11 +37,6 @@ export default function increaseReducer(state = initialState, action){
       return{
         ...state,
         isLogin: action.isLogin
-      };
-    case SET_ROLE:
-      return{
-        ...state,
-        role: setRole(action.payload),
       };
     default:
       return state;

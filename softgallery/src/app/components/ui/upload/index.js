@@ -15,8 +15,8 @@ import '../../../styles/upload/upload.css'
 
 //Services
 
-import albumService from "../../../services/album/albumServices";
-import {ERROR_MODAL} from "../../../store/redux/types";
+import albumService from "../../../actions/services/album/albumServices";
+import {ERROR_MODAL} from "../../../actions/store/redux/types";
 import MainLoading from '../subcomponents/MainLoading';
 
 

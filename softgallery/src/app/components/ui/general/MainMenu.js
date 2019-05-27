@@ -12,7 +12,7 @@ import icon from "../../../assets/logo2.png";
 import '../../../styles/general/mainmenu.css';
 import PropTypes from "prop-types";
 
-import {logout} from "../../../store/redux/actions/login/loginActions";
+import {logout} from "../../../actions/store/redux/actions/login/loginActions";
 import connect from "react-redux/es/connect/connect";
 
 //Constants

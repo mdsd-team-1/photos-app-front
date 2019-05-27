@@ -33,6 +33,16 @@ export function CONFIRM_MODAL(title, err_message) {
   });
 };
 
+export function ERROR_NEW_MODAL(title, err_message) {
+  Modal.error({
+    title: title,
+    content: err_message,
+    onOk() {
+      window.location.reload();
+    },
+  });
+};
+
 export function allowEmergingWindows() {
   Modal.warning({
     title: 'Ventanas emergentes',

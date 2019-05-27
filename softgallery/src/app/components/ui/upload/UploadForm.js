@@ -6,10 +6,10 @@ import {Form, Row, Col, Tag, Input, Button, Divider, Modal} from 'antd';
 import FieldTitle from '../subcomponents/FieldTitle';
 
 //Actions
-import {ERROR_MODAL,CONFIRM_MODAL} from "../../../store/redux/types";
+import {ERROR_MODAL,CONFIRM_MODAL} from "../../../actions/store/redux/types";
 
 //Services
-import uploadService from "../../../services/upload/uploadServices";
+import uploadService from "../../../actions/services/upload/uploadServices";
 
 //Styles
 import '../../../styles/upload/upload.css'

@@ -12,7 +12,7 @@ import App from './app/App';
 
 //Subcomponents
 import * as serviceWorker from './serviceWorker';
-import store from './app/store/store'
+import store from './app/actions/store/store'
 
 //Styles
 import './app/styles/index.css';

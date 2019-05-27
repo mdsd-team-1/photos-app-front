@@ -13,8 +13,8 @@ import '../../../styles/profile/profile.css'
 import slider_1 from "../../../assets/profile.png";
 
 //Services
-import profileService from "../../../services/users/userServices";
-import {ERROR_MODAL} from "../../../store/redux/types";
+import profileService from "../../../actions/services/users/userServices";
+import {ERROR_MODAL} from "../../../actions/store/redux/types";
 
 class Profile extends Component {
 

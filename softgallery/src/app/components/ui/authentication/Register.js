@@ -7,9 +7,9 @@ import {Link} from "react-router-dom";
 
 import icon from "../../../assets/logo.png";
 
-import {ERROR_MODAL, SUCCESS_MODAL} from "../../../store/redux/types";
-import registerService from '../../../services/authentication/registerServices';
-import userSessionService from '../../../services/authentication/loginServices';
+import {ERROR_MODAL, SUCCESS_MODAL} from "../../../actions/store/redux/types";
+import registerService from '../../../actions/services/authentication/registerServices';
+import userSessionService from '../../../actions/services/authentication/loginServices';
 
 //Constants
 const FormItem = Form.Item;

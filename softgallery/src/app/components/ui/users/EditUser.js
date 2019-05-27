@@ -10,8 +10,8 @@ import connect from "react-redux/es/connect/connect";
 import Button from "antd/es/button/button";
 
 //Services
-import profileService from "../../../services/users/userServices";
-import {ERROR_MODAL, CONFIRM_MODAL} from "../../../store/redux/types";
+import profileService from "../../../actions/services/users/userServices";
+import {ERROR_MODAL, CONFIRM_MODAL} from "../../../actions/store/redux/types";
 
 //Constants
 const FormItem = Form.Item;
@@ -76,7 +76,7 @@ class EditUser extends Component {
 
   submit(){
     console.log(this.state);
-    let {user} = this.state
+    //let {user} = this.state
     let profile = {
       first_name: this.state.firstName,
       last_name: this.state.lastName,

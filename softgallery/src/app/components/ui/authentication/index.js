@@ -12,10 +12,10 @@ import routes from "../../../utils/constants";
 //import Home from "../home/index";
 
 //Services
-import userSessionService from "../../../services/authentication/loginServices";
+//import userSessionService from "../../../actions/services/authentication/loginServices";
 
 //Actions
-import {ERROR_MODAL, SUCCESS_MODAL} from "../../../store/redux/types";
+//import {ERROR_MODAL, SUCCESS_MODAL} from "../../../actions/store/redux/types";
 
 //Styles
 import '../../../styles/login/login.css';
