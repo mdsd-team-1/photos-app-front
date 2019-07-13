@@ -6,14 +6,14 @@ import PropTypes from "prop-types";
 import connect from "react-redux/es/connect/connect";
 
 //Components
-import Home from "../home/index";
-import Upload from "../upload/index";
-import Album from "../album/index";
-import Profile from "../users/index";
-import Gallery from "../gallery/index";
+import Home from "../viewComponents/ui/home/index";
+import Upload from "../viewComponents/ui/upload/index";
+import Album from "../viewComponents/ui/album/index";
+import Profile from "../viewComponents/ui/users/index";
+import Gallery from "../viewComponents/ui/gallery/index";
 
 //Subcomponents
-import routes from '../../../../configuration/routing/routes';
+import routes from '../../configuration/routing/routes';
 
 //Styles
 //import '../../../../styles/general/layout/router.css';

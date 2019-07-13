@@ -8,7 +8,7 @@ import MainMenu from "./viewComponents/ui/general/MainMenu";
 import Login from "./viewComponents/ui/authentication/index";
 
 //Subcomponents
-import Router from "./viewComponents/ui/general/Router";
+import Router from "./logicComponents/Router";
 
 //Styles
 import './viewComponents/styles/app/App.css';
