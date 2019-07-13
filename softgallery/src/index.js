@@ -8,14 +8,14 @@ import { Provider } from 'react-redux';
 import 'moment/locale/es';
 
 //Components
-import App from './app/App';
+import App from './app/components/App';
 
 //Subcomponents
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from './app/configuration/serviceWorker';
 import store from './app/actions/store/store'
 
 //Styles
-import './app/styles/index.css';
+//import './app/styles/index.css';
 
 ReactDOM.render(
     <Provider store={store}>
